@@ -1,0 +1,66 @@
+@import url(module/nav_menu.css);
+
+/*********************************************
+
+index.css
+
+ *********************************************/
+
+.wrapper{
+    display: flex;
+    align-items: center;
+}
+
+section{
+    margin: 0 auto;
+}
+
+.about-box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-ttl{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 3.8rem;
+    text-align: center;
+    padding: 0 0 28px 0;
+}
+
+.about-text{
+    width: 320px;
+    padding: 0 0 24px 0;
+    font-size: 1rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.4rem;
+}
+
+.add-device-button{
+    padding: 0 0 24px 0;
+}
+
+.add-device-button a{
+    font-family: 'Quicksand', sans-serif;
+    color: #F47676;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.main-img{
+    padding: 0 20px 0 0;
+}
+
+.main-img img{
+    width: 400px;
+    height: auto;
+}
+
+.memo-list li{
+    font-size: 1rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.4rem;
+}
+

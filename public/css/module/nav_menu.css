@@ -32,4 +32,5 @@ nav{
 
 .active, .menu li a:hover{
     color: #FA7F7F;
+    font-weight: bold;
 }

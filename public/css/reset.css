@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&family=Roboto+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&family=Roboto&family=Roboto+Mono:wght@500&display=swap');
 
 /*! destyle.css v3.0.2 | MIT License | https://github.com/nicolas-cusan/destyle.css */
 :root {
@@ -44,7 +44,7 @@ html {
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    color: #2b2b2b;
+    color: #272929;
     /*-webkit-animation: fadeIn 1s ease 0s 1 normal;*/
     /*animation: fadeIn 1s ease 0s 1 normal;*/
 }
