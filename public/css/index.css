@@ -1,0 +1,50 @@
+@import url(module/nav_menu.css);
+
+/*********************************************
+
+index.css
+
+ *********************************************/
+
+.wrapper{
+    display: flex;
+    align-items: center;
+}
+
+section{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ttl{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.home-ttl{
+    font-size: 3.8rem;
+}
+
+.home-sub-ttl{
+    font-size: 1.2rem;
+}
+
+.add-device-button a{
+    display: block;
+    width: 200px;
+    margin: 24px auto 0;
+    background: #F47676;
+    color: #fff;
+    font-size: 1.3rem;
+    padding: 12px 20px;
+    border-radius: 25px;
+}
+
+.main-img img{
+    width: 600px;
+    height: auto;
+}
+

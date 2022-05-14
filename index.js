@@ -22,4 +22,5 @@ require("./routes/main")(app);
 app.set("views",__dirname + "/views");
 app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
+app.use(express.static('public'));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

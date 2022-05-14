@@ -2,12 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Smart Home</title>
+    <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <h1> This is home page </h1>
-  <p>Homepage This is an example paragraph. Anything in the <strong>body
-    </strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.
-  </p>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <ul class="menu">
+                    <li><a href="/" class="active"><span><i class="fa-solid fa-house-chimney"></i></span>Home</a></li>
+                    <li><a href="/about"><span><i class="fa-solid fa-circle-user"></i></span>About</a></li>
+                    <li><a href="/add_device"><span><i class="fa-solid fa-house-laptop"></i></span>Add Device</a></li>
+                    <li><a href="/device_list"><span><i class="fa-solid fa-clipboard-list"></i></span>Device List</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <div class="ttl">
+                <h1 class="home-ttl">Smart Home</h1>
+                <p class="home-sub-ttl">Make Life Easier</p>
+                <div class="add-device-button"><a href="">Add Device</a></div>
+            </div>
+            <div class="main-img"><img src ="images/pixeltrue-welcome.svg" alt="Smart Home - Make Life Easier -"/></div>
+        </section>
+    </div>
 </body>
 </html>
