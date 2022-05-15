@@ -2,7 +2,7 @@
 
 /*********************************************
 
-about.css
+device_list.css
 
  *********************************************/
 
@@ -13,16 +13,10 @@ about.css
 
 section{
     margin: 0 auto;
+    text-align: center;
 }
 
-.about-box{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.about-ttl{
+.list-ttl{
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
     font-size: 3.8rem;
@@ -30,23 +24,23 @@ section{
     padding: 0 0 28px 0;
 }
 
-.about-text{
-    width: 320px;
-    padding: 0 0 24px 0;
+.device-list-text{
+    padding: 24px 0 0;
     font-size: 1rem;
     letter-spacing: 0.02rem;
-    line-height: 1.4rem;
-}
 
-.add-device-button{
-    padding: 0 0 24px 0;
 }
 
 .add-device-button a{
     font-family: 'Quicksand', sans-serif;
-    color: #F47676;
-    text-decoration: underline;
-    font-weight: bold;
+    display: block;
+    width: 200px;
+    margin: 24px auto 0;
+    background: #F47676;
+    color: #fff;
+    font-size: 1.3rem;
+    padding: 12px 20px;
+    border-radius: 25px;
 }
 
 .main-img{
@@ -56,11 +50,5 @@ section{
 .main-img img{
     width: 400px;
     height: auto;
-}
-
-.memo-list li{
-    font-size: 1rem;
-    letter-spacing: 0.02rem;
-    line-height: 1.4rem;
 }
 
