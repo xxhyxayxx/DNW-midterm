@@ -26,12 +26,19 @@ form{
 }
 
 .select-form{
+    -webkit-appearance: none;
+    appearance: none;
+    font-family: 'Quicksand', sans-serif;
     background: #fff;
-    padding: 12px;
+    padding: 12px 32px 12px 12px;
     border-radius: 8px;
     color: #858282;
     font-weight: bold;
     font-size: 1.2rem;
+    background-image: url(../images/arrow_down.svg);
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 13px 13px;
 }
 
 .add-device-ttl{
@@ -102,16 +109,24 @@ form{
     height: 35px;
 }
 
-.select-box{
+.select-box, .range-box{
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 24px 24px 0;
 }
 
+#option{
+    display: block;
+}
+
+#isOn, #isOpen, #isLock, #temp, #temp2, #temp3, #time, #time2, #channel, #volume{
+    display: none;
+}
+
 .submit-button{
     margin: 24px auto 0;
-    background: #F47676;
+    background: #7c7c7c;
     color: #fff;
     padding: 12px 0;
     width: 140px;
@@ -120,4 +135,5 @@ form{
     font-weight: bold;
     font-size: 1.1rem;
     letter-spacing: 0.02rem;
+    font-family: 'Quicksand', sans-serif;
 }
