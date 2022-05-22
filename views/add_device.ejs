@@ -26,27 +26,23 @@
         <form method="POST" action="/add_device">
             <label for="device" class="add_device_select">
                 <select name="device" id="device" class="select_form" onchange="viewChange();">
+                    <%
+                    const appliances_list = ["Microwave","Refrigerator","Rice Cooker","Dish Washer","Robot Vacuum", "Washing Machine","Dryer","Air Conditioner","Heater","Humidifier","Fan","TV","Kettle","Computer","Speaker","Curtain", "Lighting","Oven","Front Door","Projector"];
+
+                    const arr = [];
+
+                    for(let i = 0; i < availableDevices.length; i++){
+                        arr.push(availableDevices[i].name);
+                    }
+
+                    let result = appliances_list.filter(itemA =>
+                            arr.indexOf(itemA) === -1
+                    );
+                    %>
                     <option value="default">Select Device</option>
-                    <option value="microwave">Microwave</option>
-                    <option value="refrigerator">Refrigerator</option>
-                    <option value="rice cooker">Rice Cooker</option>
-                    <option value="dish washer">Dish Washer</option>
-                    <option value="robot vacuum">Robot Vacuum</option>
-                    <option value="washing machine">Washing Machine</option>
-                    <option value="dryer">Dryer</option>
-                    <option value="air conditioner">Air Conditioner</option>
-                    <option value="heater">Heater</option>
-                    <option value="humidifier">Humidifier</option>
-                    <option value="fan">Fan</option>
-                    <option value="TV">TV</option>
-                    <option value="kettle">Kettle</option>
-                    <option value="computer">Computer</option>
-                    <option value="speaker">Speaker</option>
-                    <option value="curtain">Curtain</option>
-                    <option value="lighting">Lighting</option>
-                    <option value="oven">Oven</option>
-                    <option value="front door">Front Door</option>
-                    <option value="projector">Projector</option>
+                    <% result.forEach(function(arr){ %>
+                        <option value="<%= arr %>"><%= arr %></option>
+                    <% }) %>
                 </select>
             </label>
             <div id="option">
@@ -185,26 +181,26 @@
 <script>
     function viewChange(){
         const appliances_list = [
-            {name: "microwave", id: ["isOn", "time2"]},
-            {name: "refrigerator", id: ["isOn"]},
-            {name: "rice cooker", id: ["isOn"]},
-            {name: "dish washer", id: ["isOn"]},
-            {name: "robot vacuum", id: ["isOn"]},
-            {name: "washing machine", id: ["isOn"]},
-            {name: "dryer", id: ["isOn", "time"]},
-            {name: "air conditioner", id: ["isOn", "temp"]},
-            {name: "heater", id: ["isOn", "temp3"]},
-            {name: "humidifier", id: ["isOn"]},
-            {name: "fan", id: ["isOn"]},
+            {name: "Microwave", id: ["isOn", "time2"]},
+            {name: "Refrigerator", id: ["isOn"]},
+            {name: "Rice Cooker", id: ["isOn"]},
+            {name: "Dish Washer", id: ["isOn"]},
+            {name: "Robot Vacuum", id: ["isOn"]},
+            {name: "Washing Machine", id: ["isOn"]},
+            {name: "Dryer", id: ["isOn", "time"]},
+            {name: "Air Conditioner", id: ["isOn", "temp"]},
+            {name: "Heater", id: ["isOn", "temp3"]},
+            {name: "Humidifier", id: ["isOn"]},
+            {name: "Fan", id: ["isOn"]},
             {name: "TV", id: ["isOn", "channel", "volume"]},
-            {name: "kettle", id: ["isOn"]},
-            {name: "computer", id: ["isOn"]},
-            {name: "speaker", id: ["isOn", "volume"]},
-            {name: "curtain", id: ["isOpen"]},
-            {name: "lighting", id: ["isOn"]},
-            {name: "oven", id: ["isOn", "time", "temp2"]},
-            {name: "front door", id: ["isLock"]},
-            {name: "projector", id: ["isOn"]},
+            {name: "Kettle", id: ["isOn"]},
+            {name: "Computer", id: ["isOn"]},
+            {name: "Speaker", id: ["isOn", "volume"]},
+            {name: "Curtain", id: ["isOpen"]},
+            {name: "Lighting", id: ["isOn"]},
+            {name: "Oven", id: ["isOn", "time", "temp2"]},
+            {name: "Front Door", id: ["isLock"]},
+            {name: "Projector", id: ["isOn"]},
         ]
 
         if(document.getElementById('device')){

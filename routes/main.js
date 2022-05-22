@@ -8,7 +8,14 @@ module.exports = function (app) {
         res.render("about.html");
     });
     app.get("/add_device", function (req, res) {
-        res.render("add_device.html");
+        let sqlquery = "SELECT * FROM appliances";
+        //execute sql query
+        db.query(sqlquery, (err, result) => {
+            if (err) {
+                res.redirect("/");
+            }
+            res.render("add_device.ejs", { availableDevices : result });
+        });
     });
     app.post("/add_device", function (req, res){
         let sqlquery = "INSERT INTO appliances (name, isOn, isOpen, isLock, temp, temp2, temp3, time, time2, channel, volume) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
@@ -17,7 +24,7 @@ module.exports = function (app) {
             if (err) {
                 return console.error(err.message);
             } else {
-                res.send("This book is added to database, name: ");
+                res.render("completion.html");
             }
         });
 
