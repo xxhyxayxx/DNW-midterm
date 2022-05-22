@@ -9,7 +9,7 @@ const db = mysql.createConnection ({
     host: "localhost",
     user: "root",
     password: process.env.MYSQK_PW,
-    database: "myBookshop" });
+    database: "mySmartHome" });
 // connect to database
 db.connect((err) => {
     if (err) {

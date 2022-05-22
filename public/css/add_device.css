@@ -25,7 +25,12 @@ form{
     background: #EAE9E9;
 }
 
-.select-form{
+.add_device_select select{
+    display: block;
+    width: 100%;
+}
+
+.select_form{
     -webkit-appearance: none;
     appearance: none;
     font-family: 'Quicksand', sans-serif;
@@ -41,7 +46,7 @@ form{
     background-size: 13px 13px;
 }
 
-.add-device-ttl{
+.add_device_ttl{
     font-weight: bold;
     font-size: 3.8rem;
     text-align: center;
