@@ -49,21 +49,24 @@
                 <div class="toggle-box option_item" id="isOn">
                     <p class="form-ttl">Power OFF/ON</p>
                     <div class="toggle_button">
-                        <input id="toggle_power" name="toggle_power" class="toggle_input" type='checkbox' disabled value="1" />
+                        <input id="toggle_power" name="toggle_power" class="toggle_input toggle_power_hidden" type='hidden' disabled value="0" />
+                        <input id="toggle_power" name="toggle_power" class="toggle_input" type='checkbox' disabled value="1" onchange="setValue('isOn');" />
                         <label for="toggle_power" class="toggle_label"></label>
                     </div>
                 </div>
                 <div class="toggle-box option_item" id="isOpen">
                     <p class="form-ttl">CLOSE/OPEN</p>
                     <div class="toggle_button">
-                        <input id="toggle_closeopen" name="toggle_closeopen" class="toggle_input" type='checkbox' value="1" disabled />
+                        <input id="toggle_closeopen" name="toggle_closeopen" class="toggle_input" type="hidden" disabled value="0" />
+                        <input id="toggle_closeopen" name="toggle_closeopen" class="toggle_input" type="checkbox" disabled value="1" onchange="setValue('isOpen');" />
                         <label for="toggle_closeopen" class="toggle_label"></label>
                     </div>
                 </div>
                 <div class="toggle-box option_item" id="isLock">
                     <p class="form-ttl">UNLOCK/LOCK</p>
                     <div class="toggle_button">
-                        <input id="toggle_lockunlock" name="toggle_lockunlock" class="toggle_input" type='checkbox' value="1" disabled />
+                        <input id="toggle_lockunlock" name="toggle_lockunlock" class="toggle_input" type="hidden" disabled value="0" />
+                        <input id="toggle_lockunlock" name="toggle_lockunlock" class="toggle_input" type='checkbox' value="1" disabled onchange="setValue('isLock');" />
                         <label for="toggle_lockunlock" class="toggle_label"></label>
                     </div>
                 </div>
@@ -71,7 +74,7 @@
                     <p class="form-ttl">Temperature</p>
                     <label for="temperature">
                         <select name="temperature" class="select_form" id="temperature" disabled >
-                            <option value="18">18</option>
+                            <option value="18" selected>18</option>
                             <option value="19">19</option>
                             <option value="20">20</option>
                             <option value="21">21</option>
@@ -91,7 +94,7 @@
                     <p class="form-ttl">Temperature</p>
                     <label for="temperature2">
                         <select name="temperature2" class="select_form" id="temperature2" disabled >
-                            <option value="100">100</option>
+                            <option value="100" selected>100</option>
                             <option value="110">110</option>
                             <option value="120">120</option>
                             <option value="130">130</option>
@@ -111,7 +114,7 @@
                     <p class="form-ttl">Temperature</p>
                     <label for="temperature3">
                         <select name="temperature3" class="select_form" id="temperature3" disabled >
-                            <option value="low">Low</option>
+                            <option value="low" selected>Low</option>
                             <option value="medium">Medium</option>
                             <option value="high">High</option>
                         </select>
@@ -121,7 +124,7 @@
                     <p class="form-ttl">Time</p>
                     <label for="time_1">
                         <select name="time_1" class="select_form" id="time_1" disabled>
-                            <option value="10">10</option>
+                            <option value="10" selected>10</option>
                             <option value="20">20</option>
                             <option value="30">30</option>
                             <option value="40">40</option>
@@ -134,7 +137,7 @@
                     <p class="form-ttl">Time</p>
                     <label for="time_2">
                         <select name="time_2" class="select_form" id="time_2" disabled>
-                            <option value="30">30s</option>
+                            <option value="30" selected>30s</option>
                             <option value="60">1m</option>
                             <option value="90">1m30s</option>
                             <option value="120">2m</option>
@@ -152,7 +155,7 @@
                     <p class="form-ttl">Channel</p>
                     <label for="channel_1">
                         <select name="channel_1" class="select_form" id="channel_1" disabled>
-                            <option value="1">1</option>
+                            <option value="1" selected>1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
@@ -173,7 +176,7 @@
                 </div>
             </div>
             <button class="submit-button" id="submit_button" type="submit" disabled>
-                Submit
+                Register
             </button>
         </form>
     </section>
@@ -247,6 +250,17 @@
         }
 
         window.onload = viewChange;
+    }
+
+    function setValue(test_id){
+        const test_id2 = document.getElementById(test_id);
+        const tag = test_id2.getElementsByTagName("input");
+
+        const new_arr = Array.from(tag);
+
+        new_arr[0].disabled = new_arr[1].checked;
+
+        window.onload = setValue;
     }
 </script>
 </body>
