@@ -5,9 +5,9 @@
     <title>Smart Home - About -</title>
 <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link href="css/all.css" rel="stylesheet">
-            <link rel="stylesheet" href="css/reset.css">
-                <link rel="stylesheet" href="css/add_device.css">
+        <link href="/css/all.css" rel="stylesheet">
+            <link rel="stylesheet" href="/css/reset.css">
+                <link rel="stylesheet" href="/css/add_device.css">
                 </head>
                 <body>
                 <div class="wrapper">
@@ -25,6 +25,7 @@
                         <h1 class="add_device_ttl">Edit Device</h1>
                         <form method="POST" action="/add_device">
                             <div id="option">
+                                <p id="device"><%= appliance[0].device %></p>
                                 <div class="toggle-box option_item" id="isOn">
                                     <p class="form-ttl">Power OFF/ON</p>
                                     <div class="toggle_button">
@@ -155,13 +156,12 @@
                                 </div>
                             </div>
                             <button class="submit-button" id="submit_button" type="submit" disabled>
-                                Register
+                                Update
                             </button>
                         </form>
                     </section>
                 </div>
                 <script>
-                    function viewChange(){
                     const appliances_list = [
                 {name: "Microwave", id: ["isOn", "time2"]},
                 {name: "Refrigerator", id: ["isOn"]},
@@ -186,7 +186,7 @@
                     ]
 
                     if(document.getElementById('device')){
-                    let id = document.getElementById('device').value;
+                    let id = document.getElementById('device').innerText;
                     const button = document.getElementById('submit_button');
 
                     if(id !== 'default'){
@@ -226,9 +226,7 @@
                     button.style.background = "#7c7c7c";
                     button.disabled = true;
                 }
-                }
 
-                    window.onload = viewChange;
                 }
 
                     function setValue(test_id){
@@ -238,8 +236,6 @@
                     const new_arr = Array.from(tag);
 
                     new_arr[0].disabled = new_arr[1].checked;
-
-                    window.onload = setValue;
                 }
                 </script>
                 </body>

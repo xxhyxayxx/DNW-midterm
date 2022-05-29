@@ -12,8 +12,12 @@ module.exports = function (app) {
         res.render("completion.ejs");
     });
 
-    app.get("/edit", function (req, res) {
-        res.render("edit.ejs");
+    app.get("/edit/:id", function (req, res) {
+        const sql = "SELECT * FROM appliances WHERE id = ?";
+        db.query(sql,[req.params.id],function (err, result) {
+            if (err) throw err;
+            res.render('edit.ejs', {appliance : result});
+        });
     });
 
     app.get("/add_device", function (req, res) {
@@ -39,21 +43,6 @@ module.exports = function (app) {
                 res.redirect("/");
             }
             res.render("device_list.ejs", { registerDevices : result });
-        });
-    });
-
-    app.get("/edit-result-db", function (req, res) {
-        //searching in the database
-        let word = [req.query.keyword];
-        word = '%' + word + '%';
-        let sqlquery = "SELECT * FROM `appliances` WHERE name like ?";
-        // execute sql query
-        db.query(sqlquery, word, (err, result) => {
-            if (err) {
-                res.redirect("/");
-            } else {
-                res.render('edit.ejs', { availableBooks: result });
-            }
         });
     });
 }

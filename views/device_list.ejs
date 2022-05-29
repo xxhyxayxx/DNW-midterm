@@ -38,7 +38,7 @@
             <ul class="device-list">
                 <% registerDevices.forEach(function(item){ %>
                     <li>
-                        <a href="/edit-result-db" class="device-item">
+                        <a href="/edit/<%= item.id %>" class="device-item">
                             <p class="device-name"><%= item.name %></p>
                             <i class="icon-<%= item.device.replace(/\s+/g, ""); %> device-icon"></i>
                             <%
