@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Smart Home - About -</title>
-    <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/device_list.css">
+    <script src="js/device_list.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -18,69 +19,65 @@
                 <li><a href="/"><span><i class="fa-solid fa-house-chimney"></i></span>Home</a></li>
                 <li><a href="/about"><span><i class="fa-solid fa-circle-user"></i></span>About</a></li>
                 <li><a href="/add_device"><span><i class="fa-solid fa-house-laptop"></i></span>Add New Device</a></li>
-                <li><a href="/device_list" class="active"><span><i class="fa-solid fa-clipboard-list"></i></span>Device List</a></li>
+                <li><a href="/device_list" class="active"><span><i class="fa-solid fa-clipboard-list"></i></span>Device
+                        List</a></li>
             </ul>
         </nav>
     </header>
     <%
-        if(registerDevices === 0){ %>
-            <section>
-                <h1 class="list-ttl">Device List</h1>
-                <div class="main-img"><img src ="images/device_list.svg" alt="Smart Home - Make Life Easier -"/></div>
-                <p class="device-list-text">There are no devices registered.</p>
-                <div class="add-device-button"><a href="/add_device">Add a device</a></div>
-            </section>
-        <% }else{ %>
-            <section>
-                <h1 class="list-ttl">Device List</h1>
-                <ul class="device-list">
-                    <% registerDevices.forEach(function(device){ %>
-                        <li>
-                            <a href="/edit_device" class="device-item">
-                                <p class="device-name"><%= device.name %></p>
-                                <i class="icon-<%= device.name.replace(/\s+/g, ""); %> device-icon"></i>
+    if(registerDevices === 0){ %>
+        <section>
+            <h1 class="list-ttl">Device List</h1>
+            <div class="main-img"><img src="images/device_list.svg" alt="Smart Home - Make Life Easier -"/></div>
+            <p class="device-list-text">There are no devices registered.</p>
+            <div class="add-device-button"><a href="/add_device">Add a device</a></div>
+        </section>
+    <% }else{ %>
+        <section>
+            <h1 class="list-ttl">Device List</h1>
+            <ul class="device-list">
+                <% registerDevices.forEach(function(item){ %>
+                    <li>
+                        <a href="/edit-result-db" class="device-item">
+                            <p class="device-name"><%= item.name %></p>
+                            <i class="icon-<%= item.device.replace(/\s+/g, ""); %> device-icon"></i>
                             <%
-                                if(device.isOn !== null){
-                                    if(device.isOn === 0){
-                                        %> <p class="device-state">OFF</p> <%
-                                    }else{
-                                        %> <p class="device-state">ON</p> <%
-                                    }
-                                }
+                            if(item.isOn !== null){
+                            if(item.isOn === 0){
+                            %> <p class="device-state">OFF</p>
+                            <%
+                            }else{
+                            %> <p class="device-state">ON</p>
+                            <%
+                            }
+                            }
 
-                                if(device.isOpen !== null){
-                                    if(device.isOpen === 0){
-                                        %> <p class="device-state">CLOSE</p> <%
-                                    }else{
-                                        %> <p class="device-state">OPEN</p> <%
-                                    }
-                                }
+                            if(item.isOpen !== null){
+                            if(item.isOpen === 0){
+                            %> <p class="device-state">CLOSE</p>
+                            <%
+                            }else{
+                            %> <p class="device-state">OPEN</p>
+                            <%
+                            }
+                            }
 
-                                if(device.isLock !== null){
-                                    if(device.isLock === 0){
-                                        %> <p class="device-state">UNLOCK</p> <%
-                                    }else{
-                                        %> <p class="device-state">LOCK</p> <%
-                                    }
-                                }%>
-                            </a>
-                        </li>
-                    <%})%>
-                </ul>
-            </section>
-         <% }
+                            if(item.isLock !== null){
+                            if(item.isLock === 0){
+                            %> <p class="device-state">UNLOCK</p>
+                            <%
+                            }else{
+                            %> <p class="device-state">LOCK</p>
+                            <%
+                            }
+                            } %>
+                        </a>
+                    </li>
+                <% }) %>
+            </ul>
+        </section>
+    <% }
     %>
 </div>
-
-<script>
-    const element = document.getElementsByClassName('device-state');
-    const item = document.getElementsByClassName('device-item')
-    for(let i = 0; i < element.length; i++){
-        if(element[i].innerText === "ON" || element[i].innerText === "OPEN" || element[i].innerText === "LOCK"){
-            item[i].style.background = '#F87670';
-            item[i].style.color = '#FFF';
-        }
-    }
-</script>
 </body>
 </html>

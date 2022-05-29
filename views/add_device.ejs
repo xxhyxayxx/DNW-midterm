@@ -3,77 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <title>Smart Home - About -</title>
-    <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/add_device.css">
+    <script src="js/add_device.js"></script>
 </head>
 <body>
 <div class="wrapper">
-    <header>
+    <header class="header">
         <nav>
             <ul class="menu">
                 <li><a href="/"><span><i class="fa-solid fa-house-chimney"></i></span>Home</a></li>
                 <li><a href="/about"><span><i class="fa-solid fa-circle-user"></i></span>About</a></li>
-                <li><a href="/add_device" class="active"><span><i class="fa-solid fa-house-laptop"></i></span>Add New Device</a></li>
+                <li><a href="/add_device" class="active"><span><i class="fa-solid fa-house-laptop"></i></span>Add New
+                        Device</a></li>
                 <li><a href="/device_list"><span><i class="fa-solid fa-clipboard-list"></i></span>Device List</a></li>
             </ul>
         </nav>
     </header>
     <section>
         <h1 class="add_device_ttl">Add New Device</h1>
-        <form method="POST" action="/add_device">
+        <form method="POST" action="/add_device" id="add_device">
             <label for="device" class="add_device_select">
-                <select name="device" id="device" class="select_form" onchange="viewChange();">
+                <select name="device" id="device" class="select_form">
                     <%
-                    const appliances_list = ["Microwave","Refrigerator","Rice Cooker","Dish Washer","Robot Vacuum", "Washing Machine","Dryer","Air Conditioner","Heater","Humidifier","Fan","TV","Kettle","Computer","Speaker","Curtain", "Lighting","Oven","Front Door","Projector"];
-
-                    const arr = [];
-
-                    for(let i = 0; i < availableDevices.length; i++){
-                        arr.push(availableDevices[i].name);
-                    }
-
-                    let result = appliances_list.filter(itemA =>
-                            arr.indexOf(itemA) === -1
-                    );
+                    const appliances_list = ["Microwave", "Refrigerator", "Rice Cooker", "Dish Washer", "Robot Vacuum", "Washing Machine", "Dryer", "Air Conditioner", "Heater", "Humidifier", "Fan", "TV", "Kettle", "Computer", "Speaker", "Curtain", "Lighting", "Oven", "Front Door", "Projector"];
                     %>
                     <option value="default">Select Device</option>
-                    <% result.forEach(function(arr){ %>
-                        <option value="<%= arr %>"><%= arr %></option>
+                    <% appliances_list.forEach(function(device){ %>
+                        <option value="<%= device %>"><%= device %></option>
                     <% }) %>
                 </select>
             </label>
             <div id="option">
+                <div class="toggle-box option_item" id="deviceName">
+                    <p class="form-ttl">Device Name</p>
+                    <label for="deviceName">
+                        <input type="text" name="deviceName" maxlength="20" placeholder="Device Name" id="device_name" disabled
+                               class="text_form"/>
+                    </label>
+                </div>
                 <div class="toggle-box option_item" id="isOn">
                     <p class="form-ttl">Power OFF/ON</p>
                     <div class="toggle_button">
-                        <input id="toggle_power" name="toggle_power" class="toggle_input toggle_power_hidden" type='hidden' disabled value="0" />
-                        <input id="toggle_power" name="toggle_power" class="toggle_input" type='checkbox' disabled value="1" onchange="setValue('isOn');" />
+                        <input id="toggle_power" name="toggle_power" class="toggle_input toggle_power_hidden"
+                               type='hidden' disabled value="0"/>
+                        <input id="toggle_power" name="toggle_power" class="toggle_input" type='checkbox' disabled
+                               value="1"/>
                         <label for="toggle_power" class="toggle_label"></label>
                     </div>
                 </div>
                 <div class="toggle-box option_item" id="isOpen">
                     <p class="form-ttl">CLOSE/OPEN</p>
                     <div class="toggle_button">
-                        <input id="toggle_closeopen" name="toggle_closeopen" class="toggle_input" type="hidden" disabled value="0" />
-                        <input id="toggle_closeopen" name="toggle_closeopen" class="toggle_input" type="checkbox" disabled value="1" onchange="setValue('isOpen');" />
+                        <input id="toggle_closeopen" name="toggle_closeopen" class="toggle_input" type="hidden" disabled
+                               value="0"/>
+                        <input id="toggle_closeopen" name="toggle_closeopen" class="toggle_input" type="checkbox"
+                               disabled value="1"/>
                         <label for="toggle_closeopen" class="toggle_label"></label>
                     </div>
                 </div>
                 <div class="toggle-box option_item" id="isLock">
                     <p class="form-ttl">UNLOCK/LOCK</p>
                     <div class="toggle_button">
-                        <input id="toggle_lockunlock" name="toggle_lockunlock" class="toggle_input" type="hidden" disabled value="0" />
-                        <input id="toggle_lockunlock" name="toggle_lockunlock" class="toggle_input" type='checkbox' value="1" disabled onchange="setValue('isLock');" />
+                        <input id="toggle_lockunlock" name="toggle_lockunlock" class="toggle_input" type="hidden"
+                               disabled value="0"/>
+                        <input id="toggle_lockunlock" name="toggle_lockunlock" class="toggle_input" type='checkbox'
+                               value="1" disabled/>
                         <label for="toggle_lockunlock" class="toggle_label"></label>
                     </div>
                 </div>
                 <div class="select-box option_item" id="temp">
                     <p class="form-ttl">Temperature</p>
                     <label for="temperature">
-                        <select name="temperature" class="select_form" id="temperature" disabled >
+                        <select name="temperature" class="select_form" id="temperature" disabled>
                             <option value="18" selected>18</option>
                             <option value="19">19</option>
                             <option value="20">20</option>
@@ -93,7 +98,7 @@
                 <div class="select-box option_item" id="temp2">
                     <p class="form-ttl">Temperature</p>
                     <label for="temperature2">
-                        <select name="temperature2" class="select_form" id="temperature2" disabled >
+                        <select name="temperature2" class="select_form" id="temperature2" disabled>
                             <option value="100" selected>100</option>
                             <option value="110">110</option>
                             <option value="120">120</option>
@@ -113,7 +118,7 @@
                 <div class="select-box option_item" id="temp3">
                     <p class="form-ttl">Temperature</p>
                     <label for="temperature3">
-                        <select name="temperature3" class="select_form" id="temperature3" disabled >
+                        <select name="temperature3" class="select_form" id="temperature3" disabled>
                             <option value="low" selected>Low</option>
                             <option value="medium">Medium</option>
                             <option value="high">High</option>
@@ -181,87 +186,5 @@
         </form>
     </section>
 </div>
-<script>
-    function viewChange(){
-        const appliances_list = [
-            {name: "Microwave", id: ["isOn", "time2"]},
-            {name: "Refrigerator", id: ["isOn"]},
-            {name: "Rice Cooker", id: ["isOn"]},
-            {name: "Dish Washer", id: ["isOn"]},
-            {name: "Robot Vacuum", id: ["isOn"]},
-            {name: "Washing Machine", id: ["isOn"]},
-            {name: "Dryer", id: ["isOn", "time"]},
-            {name: "Air Conditioner", id: ["isOn", "temp"]},
-            {name: "Heater", id: ["isOn", "temp3"]},
-            {name: "Humidifier", id: ["isOn"]},
-            {name: "Fan", id: ["isOn"]},
-            {name: "TV", id: ["isOn", "channel", "volume"]},
-            {name: "Kettle", id: ["isOn"]},
-            {name: "Computer", id: ["isOn"]},
-            {name: "Speaker", id: ["isOn", "volume"]},
-            {name: "Curtain", id: ["isOpen"]},
-            {name: "Lighting", id: ["isOn"]},
-            {name: "Oven", id: ["isOn", "time", "temp2"]},
-            {name: "Front Door", id: ["isLock"]},
-            {name: "Projector", id: ["isOn"]},
-        ]
-
-        if(document.getElementById('device')){
-            let id = document.getElementById('device').value;
-            const button = document.getElementById('submit_button');
-
-            if(id !== 'default'){
-                const findAppliance = id => {
-                    return appliances_list.find(p => p.name === id).id;
-                }
-
-                const appliance_option = findAppliance(id);
-
-                const reset = document.getElementsByClassName('option_item');
-                for(let i = 0; i < reset.length; i++){
-                    reset[i].style.display = 'none';
-                }
-
-                appliance_option.forEach(element => {
-                    document.getElementById('option').style.display = "block";
-                    const tag = document.getElementById(element);
-                    tag.style.display = "flex";
-                    if(tag.getElementsByTagName("input")){
-                        const input = tag.getElementsByTagName("input");
-                        for(let i = 0; i < input.length; i++){
-                            input[i].disabled = false;
-                        }
-                    }
-                    if(tag.getElementsByTagName("select")){
-                        const select = tag.getElementsByTagName("select");
-                        for(let i = 0; i < select.length; i++){
-                            select[i].disabled = false;
-                        }
-                    }
-                })
-
-                button.style.background = "#F47676";
-                button.disabled = false;
-            }else{
-                document.getElementById('option').style.display = "none";
-                button.style.background = "#7c7c7c";
-                button.disabled = true;
-            }
-        }
-
-        window.onload = viewChange;
-    }
-
-    function setValue(test_id){
-        const test_id2 = document.getElementById(test_id);
-        const tag = test_id2.getElementsByTagName("input");
-
-        const new_arr = Array.from(tag);
-
-        new_arr[0].disabled = new_arr[1].checked;
-
-        window.onload = setValue;
-    }
-</script>
 </body>
 </html>

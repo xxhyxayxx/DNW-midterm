@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Smart Home - About -</title>
+<link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link href="css/all.css" rel="stylesheet">
+            <link rel="stylesheet" href="css/reset.css">
+                <link rel="stylesheet" href="css/add_device.css">
+                </head>
+                <body>
+                <div class="wrapper">
+                    <header>
+                        <nav>
+                            <ul class="menu">
+                                <li><a href="/"><span><i class="fa-solid fa-house-chimney"></i></span>Home</a></li>
+                                <li><a href="/about"><span><i class="fa-solid fa-circle-user"></i></span>About</a></li>
+                                <li><a href="/add_device"><span><i class="fa-solid fa-house-laptop"></i></span>Add New Device</a></li>
+                                <li><a href="/device_list" class="active"><span><i class="fa-solid fa-clipboard-list"></i></span>Device List</a></li>
+                            </ul>
+                        </nav>
+                    </header>
+                    <section>
+                        <h1 class="add_device_ttl">Edit Device</h1>
+                        <form method="POST" action="/add_device">
+                            <div id="option">
+                                <div class="toggle-box option_item" id="isOn">
+                                    <p class="form-ttl">Power OFF/ON</p>
+                                    <div class="toggle_button">
+                                        <input id="toggle_power" name="toggle_power" class="toggle_input toggle_power_hidden" type='hidden' disabled value="0" />
+                                        <input id="toggle_power" name="toggle_power" class="toggle_input" type='checkbox' disabled value="1" onchange="setValue('isOn');" />
+                                        <label for="toggle_power" class="toggle_label"></label>
+                                    </div>
+                                </div>
+                                <div class="toggle-box option_item" id="isOpen">
+                                    <p class="form-ttl">CLOSE/OPEN</p>
+                                    <div class="toggle_button">
+                                        <input id="toggle_closeopen" name="toggle_closeopen" class="toggle_input" type="hidden" disabled value="0" />
+                                        <input id="toggle_closeopen" name="toggle_closeopen" class="toggle_input" type="checkbox" disabled value="1" onchange="setValue('isOpen');" />
+                                        <label for="toggle_closeopen" class="toggle_label"></label>
+                                    </div>
+                                </div>
+                                <div class="toggle-box option_item" id="isLock">
+                                    <p class="form-ttl">UNLOCK/LOCK</p>
+                                    <div class="toggle_button">
+                                        <input id="toggle_lockunlock" name="toggle_lockunlock" class="toggle_input" type="hidden" disabled value="0" />
+                                        <input id="toggle_lockunlock" name="toggle_lockunlock" class="toggle_input" type='checkbox' value="1" disabled onchange="setValue('isLock');" />
+                                        <label for="toggle_lockunlock" class="toggle_label"></label>
+                                    </div>
+                                </div>
+                                <div class="select-box option_item" id="temp">
+                                    <p class="form-ttl">Temperature</p>
+                                    <label for="temperature">
+                                        <select name="temperature" class="select_form" id="temperature" disabled >
+                                            <option value="18" selected>18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                            <option value="29">29</option>
+                                            <option value="30">30</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="select-box option_item" id="temp2">
+                                    <p class="form-ttl">Temperature</p>
+                                    <label for="temperature2">
+                                        <select name="temperature2" class="select_form" id="temperature2" disabled >
+                                            <option value="100" selected>100</option>
+                                            <option value="110">110</option>
+                                            <option value="120">120</option>
+                                            <option value="130">130</option>
+                                            <option value="140">140</option>
+                                            <option value="150">150</option>
+                                            <option value="160">160</option>
+                                            <option value="170">170</option>
+                                            <option value="180">180</option>
+                                            <option value="190">190</option>
+                                            <option value="200">200</option>
+                                            <option value="210">210</option>
+                                            <option value="220">220</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="select-box option_item" id="temp3">
+                                    <p class="form-ttl">Temperature</p>
+                                    <label for="temperature3">
+                                        <select name="temperature3" class="select_form" id="temperature3" disabled >
+                                            <option value="low" selected>Low</option>
+                                            <option value="medium">Medium</option>
+                                            <option value="high">High</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="select-box option_item" id="time">
+                                    <p class="form-ttl">Time</p>
+                                    <label for="time_1">
+                                        <select name="time_1" class="select_form" id="time_1" disabled>
+                                            <option value="10" selected>10</option>
+                                            <option value="20">20</option>
+                                            <option value="30">30</option>
+                                            <option value="40">40</option>
+                                            <option value="50">50</option>
+                                            <option value="60">60</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="select-box option_item" id="time2">
+                                    <p class="form-ttl">Time</p>
+                                    <label for="time_2">
+                                        <select name="time_2" class="select_form" id="time_2" disabled>
+                                            <option value="30" selected>30s</option>
+                                            <option value="60">1m</option>
+                                            <option value="90">1m30s</option>
+                                            <option value="120">2m</option>
+                                            <option value="150">2m30s</option>
+                                            <option value="180">3m</option>
+                                            <option value="210">3m30s</option>
+                                            <option value="240">4m</option>
+                                            <option value="270">4m30s</option>
+                                            <option value="300">5m</option>
+                                            <option value="330">5m30s</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="select-box option_item" id="channel">
+                                    <p class="form-ttl">Channel</p>
+                                    <label for="channel_1">
+                                        <select name="channel_1" class="select_form" id="channel_1" disabled>
+                                            <option value="1" selected>1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="range-box option_item" id="volume">
+                                    <p class="form-ttl">Volume</p>
+                                    <label for="range">
+                                        <input name="range" type="range" min="0" max="10" step="1" id="range" disabled>
+                                    </label>
+                                </div>
+                            </div>
+                            <button class="submit-button" id="submit_button" type="submit" disabled>
+                                Register
+                            </button>
+                        </form>
+                    </section>
+                </div>
+                <script>
+                    function viewChange(){
+                    const appliances_list = [
+                {name: "Microwave", id: ["isOn", "time2"]},
+                {name: "Refrigerator", id: ["isOn"]},
+                {name: "Rice Cooker", id: ["isOn"]},
+                {name: "Dish Washer", id: ["isOn"]},
+                {name: "Robot Vacuum", id: ["isOn"]},
+                {name: "Washing Machine", id: ["isOn"]},
+                {name: "Dryer", id: ["isOn", "time"]},
+                {name: "Air Conditioner", id: ["isOn", "temp"]},
+                {name: "Heater", id: ["isOn", "temp3"]},
+                {name: "Humidifier", id: ["isOn"]},
+                {name: "Fan", id: ["isOn"]},
+                {name: "TV", id: ["isOn", "channel", "volume"]},
+                {name: "Kettle", id: ["isOn"]},
+                {name: "Computer", id: ["isOn"]},
+                {name: "Speaker", id: ["isOn", "volume"]},
+                {name: "Curtain", id: ["isOpen"]},
+                {name: "Lighting", id: ["isOn"]},
+                {name: "Oven", id: ["isOn", "time", "temp2"]},
+                {name: "Front Door", id: ["isLock"]},
+                {name: "Projector", id: ["isOn"]},
+                    ]
+
+                    if(document.getElementById('device')){
+                    let id = document.getElementById('device').value;
+                    const button = document.getElementById('submit_button');
+
+                    if(id !== 'default'){
+                    const findAppliance = id => {
+                    return appliances_list.find(p => p.name === id).id;
+                }
+
+                    const appliance_option = findAppliance(id);
+
+                    const reset = document.getElementsByClassName('option_item');
+                    for(let i = 0; i < reset.length; i++){
+                    reset[i].style.display = 'none';
+                }
+
+                    appliance_option.forEach(element => {
+                    document.getElementById('option').style.display = "block";
+                    const tag = document.getElementById(element);
+                    tag.style.display = "flex";
+                    if(tag.getElementsByTagName("input")){
+                    const input = tag.getElementsByTagName("input");
+                    for(let i = 0; i < input.length; i++){
+                    input[i].disabled = false;
+                }
+                }
+                    if(tag.getElementsByTagName("select")){
+                    const select = tag.getElementsByTagName("select");
+                    for(let i = 0; i < select.length; i++){
+                    select[i].disabled = false;
+                }
+                }
+                })
+
+                    button.style.background = "#F47676";
+                    button.disabled = false;
+                }else{
+                    document.getElementById('option').style.display = "none";
+                    button.style.background = "#7c7c7c";
+                    button.disabled = true;
+                }
+                }
+
+                    window.onload = viewChange;
+                }
+
+                    function setValue(test_id){
+                    const test_id2 = document.getElementById(test_id);
+                    const tag = test_id2.getElementsByTagName("input");
+
+                    const new_arr = Array.from(tag);
+
+                    new_arr[0].disabled = new_arr[1].checked;
+
+                    window.onload = setValue;
+                }
+                </script>
+                </body>
+            </html>
