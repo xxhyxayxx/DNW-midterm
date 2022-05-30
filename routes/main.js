@@ -20,6 +20,14 @@ module.exports = function (app) {
         });
     });
 
+    app.post('/edit/:id',(req,res)=>{
+        const sql = "UPDATE appliances SET ? WHERE id = " + req.params.id;
+        db.query(sql,req.body,function (err, result) {
+            if (err) throw err;
+            res.redirect('/device_list');
+        });
+    });
+
     app.get("/add_device", function (req, res) {
         res.render("add_device.ejs");
     });
