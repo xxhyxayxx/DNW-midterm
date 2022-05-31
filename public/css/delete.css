@@ -141,7 +141,7 @@ form{
 }
 
 .submit-button{
-    margin: 24px auto 0;
+    margin: 24px 0 0;
     background: #7c7c7c;
     color: #fff;
     padding: 12px 0;
@@ -152,6 +152,10 @@ form{
     font-size: 1.1rem;
     letter-spacing: 0.02rem;
     font-family: 'Quicksand', sans-serif;
+}
+
+.submit-button:hover{
+    background: #F47676;
 }
 
 .delete_button a{
@@ -189,8 +193,42 @@ form{
     padding: 2px 0 0 0;
 }
 
-.device_name{
-    font-weight: bold;
+.device{
     text-align: center;
     font-size: 1.4rem;
+}
+
+.device_name{
+    padding: 24px 0 8px;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.device_name_active{
+    font-weight: bold;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cancel{
+    margin: 24px 16px 0 0;
+    color: #7c7c7c;
+    border: 2px solid #7c7c7c;
+    padding: 12px 0;
+    width: 140px;
+    text-align: center;
+    border-radius: 24px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 0.02rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.cancel:hover{
+    background: #7c7c7c;
+    color: #fff;
 }

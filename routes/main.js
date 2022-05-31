@@ -28,6 +28,22 @@ module.exports = function (app) {
         });
     });
 
+    app.get("/delete/:id", function (req, res) {
+        const sql = "SELECT * FROM appliances WHERE id = ?";
+        db.query(sql,[req.params.id],function (err, result) {
+            if (err) throw err;
+            res.render('delete.ejs', {appliance : result});
+        });
+    });
+
+    app.post('/delete/:id',(req,res)=>{
+        const sql = "DELETE FROM appliances WHERE id = ?";
+        db.query(sql,[req.params.id],function(err,result,fields){
+            if (err) throw err;
+            res.redirect('/device_list');
+        })
+    });
+
     app.get("/add_device", function (req, res) {
         res.render("add_device.ejs");
     });
