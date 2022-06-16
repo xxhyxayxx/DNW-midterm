@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Home - About -</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/edit.css">
+    <script src="/js/edit.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="/"><span><i class="fa-solid fa-house-chimney"></i></span>Home</a></li>
+                <li><a href="/about"><span><i class="fa-solid fa-circle-user"></i></span>About</a></li>
+                <li><a href="/add_device"><span><i class="fa-solid fa-house-laptop"></i></span>Add New Device</a></li>
+                <li><a href="/device_list" class="active"><span><i class="fa-solid fa-clipboard-list"></i></span>Device
+                        List</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h1 class="add_device_ttl">Edit Device</h1>
+        <form method="POST" action="/edit/<%= appliance[0].id %>" id="update_device">
+            <div id="option">
+                <div class="test">
+                    <p id="device" class="device_name"><%= appliance[0].device %></p>
+                    <a href="/delete/<%= appliance[0].id %>"><span><i class="fa-solid fa-xmark delete_icon"></i></span><span class="delete_text">Delete</span></a>
+                </div>
+                <div class="toggle-box option_item" id="deviceName">
+                    <p class="form-ttl">Device Name</p>
+                    <label for="name">
+                        <input type="text" name="name" maxlength="20" placeholder="Device Name" id="name"
+                               value="<%= appliance[0].name %>" disabled
+                               class="text_form"/>
+                    </label>
+                </div>
+                <div class="toggle-box option_item" id="is_on">
+                    <p class="form-ttl">Power OFF/ON</p>
+                    <div class="toggle_button">
+                        <input id="toggle_power" name="isOn" class="toggle_input toggle_power_hidden" type='hidden'
+                               disabled value="0"/>
+                        <input id="toggle_power" name="isOn" class="toggle_input" type='checkbox' disabled value="1"
+                        <% if(appliance[0].isOn === 1){ %> checked
+                                <% } %>
+                        />
+                        <label for="toggle_power" class="toggle_label"></label>
+                    </div>
+                </div>
+                <div class="toggle-box option_item" id="is_open">
+                    <p class="form-ttl">CLOSE/OPEN</p>
+                    <div class="toggle_button">
+                        <input id="toggle_closeopen" name="isOpen" class="toggle_input" type="hidden" disabled
+                               value="0"/>
+                        <input id="toggle_closeopen" name="isOpen" class="toggle_input" type="checkbox" disabled
+                               value="1"
+                        <% if(appliance[0].isOn === 1){ %> checked
+                                <% } %>
+                        />
+                        <label for="toggle_closeopen" class="toggle_label"></label>
+                    </div>
+                </div>
+                <div class="toggle-box option_item" id="is_lock">
+                    <p class="form-ttl">UNLOCK/LOCK</p>
+                    <div class="toggle_button">
+                        <input id="toggle_lockunlock" name="isLock" class="toggle_input" type="hidden" disabled
+                               value="0"/>
+                        <input id="toggle_lockunlock" name="isLock" class="toggle_input" type='checkbox' value="1"
+                        <% if(appliance[0].isOn === 1){ %> checked
+                                <% } %>
+                               disabled/>
+                        <label for="toggle_lockunlock" class="toggle_label"></label>
+                    </div>
+                </div>
+                <div class="select-box option_item" id="temp">
+                    <p class="form-ttl">Temperature</p>
+                    <label for="temperature">
+                        <select name="temp" class="select_form" id="temperature" disabled>
+                            <option value="18" selected>18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="select-box option_item" id="temp2">
+                    <p class="form-ttl">Temperature</p>
+                    <label for="temperature2">
+                        <select name="temp2" class="select_form" id="temperature2" disabled>
+                            <option value="100"
+                            <% if(appliance[0].temp2 === 100){ %> selected
+                                    <% } %>
+                            >100
+                            </option>
+                            <option value="110"
+                            <% if(appliance[0].temp2 === 110){ %> selected
+                                    <% } %>
+                            >110
+                            </option>
+                            <option value="120"
+                            <% if(appliance[0].temp2 === 120){ %> selected
+                                    <% } %>
+                            >120
+                            </option>
+                            <option value="130"
+                            <% if(appliance[0].temp2 === 130){ %> selected
+                                    <% } %>
+                            >130
+                            </option>
+                            <option value="140"
+                            <% if(appliance[0].temp2 === 140){ %> selected
+                                    <% } %>
+                            >140
+                            </option>
+                            <option value="150"
+                            <% if(appliance[0].temp2 === 150){ %> selected
+                                    <% } %>
+                            >150
+                            </option>
+                            <option value="160"
+                            <% if(appliance[0].temp2 === 160){ %> selected
+                                    <% } %>
+                            >160
+                            </option>
+                            <option value="170"
+                            <% if(appliance[0].temp2 === 170){ %> selected
+                                    <% } %>
+                            >170
+                            </option>
+                            <option value="180"
+                            <% if(appliance[0].temp2 === 180){ %> selected
+                                    <% } %>
+                            >180
+                            </option>
+                            <option value="190"
+                            <% if(appliance[0].temp2 === 190){ %> selected
+                                    <% } %>
+                            >190
+                            </option>
+                            <option value="200"
+                            <% if(appliance[0].temp2 === 200){ %> selected
+                                    <% } %>
+                            >200
+                            </option>
+                            <option value="210"
+                            <% if(appliance[0].temp2 === 210){ %> selected
+                                    <% } %>
+                            >210
+                            </option>
+                            <option value="220"
+                            <% if(appliance[0].temp2 === 220){ %> selected
+                                    <% } %>
+                            >220
+                            </option>
+                        </select>
+                    </label>
+                </div>
+                <div class="select-box option_item" id="temp3">
+                    <p class="form-ttl">Temperature</p>
+                    <label for="temperature3">
+                        <select name="temp3" class="select_form" id="temperature3" disabled>
+                            <option value="low"
+                            <% if(appliance[0].temp3 === "low"){ %> selected
+                                    <% } %>
+                            >Low
+                            </option>
+                            <option value="medium"
+                            <% if(appliance[0].temp3 === "medium"){ %> selected
+                                    <% } %>
+                            >Medium
+                            </option>
+                            <option value="high"
+                            <% if(appliance[0].temp3 === "high"){ %> selected
+                                    <% } %>
+                            >High
+                            </option>
+                        </select>
+                    </label>
+                </div>
+                <div class="select-box option_item" id="time">
+                    <p class="form-ttl">Time</p>
+                    <label for="time_1">
+                        <select name="time" class="select_form" id="time_1" disabled>
+                            <option value="10"
+                            <% if(appliance[0].time === 10){ %> selected
+                                    <% } %>
+                            >10
+                            </option>
+                            <option value="20"
+                            <% if(appliance[0].time === 20){ %> selected
+                                    <% } %>
+                            >20
+                            </option>
+                            <option value="30"
+                            <% if(appliance[0].time === 30){ %> selected
+                                    <% } %>
+                            >30
+                            </option>
+                            <option value="40"
+                            <% if(appliance[0].time === 40){ %> selected
+                                    <% } %>
+                            >40
+                            </option>
+                            <option value="50"
+                            <% if(appliance[0].time === 50){ %> selected
+                                    <% } %>
+                            >50
+                            </option>
+                            <option value="60"
+                            <% if(appliance[0].time === 60){ %> selected
+                                    <% } %>
+                            >60
+                            </option>
+                        </select>
+                    </label>
+                </div>
+                <div class="select-box option_item" id="time2">
+                    <p class="form-ttl">Time</p>
+                    <label for="time_2">
+                        <select name="time_2" class="select_form" id="time_2" disabled>
+                            <option value="30"
+                            <% if(appliance[0].time2 === 30){ %> selected
+                                    <% } %>
+                            >30s
+                            </option>
+                            <option value="60"
+                            <% if(appliance[0].time2 === 60){ %> selected
+                                    <% } %>
+                            >1m
+                            </option>
+                            <option value="90"
+                            <% if(appliance[0].time2 === 90){ %> selected
+                                    <% } %>
+                            >1m30s
+                            </option>
+                            <option value="120"
+                            <% if(appliance[0].time2 === 120){ %> selected
+                                    <% } %>
+                            >2m
+                            </option>
+                            <option value="150"
+                            <% if(appliance[0].time2 === 150){ %> selected
+                                    <% } %>
+                            >2m30s
+                            </option>
+                            <option value="180"
+                            <% if(appliance[0].time2 === 180){ %> selected
+                                    <% } %>
+                            >3m
+                            </option>
+                            <option value="210"
+                            <% if(appliance[0].time2 === 210){ %> selected
+                                    <% } %>
+                            >3m30s
+                            </option>
+                            <option value="240"
+                            <% if(appliance[0].time2 === 240){ %> selected
+                                    <% } %>
+                            >4m
+                            </option>
+                            <option value="270"
+                            <% if(appliance[0].time2 === 270){ %> selected
+                                    <% } %>
+                            >4m30s
+                            </option>
+                            <option value="300"
+                            <% if(appliance[0].time2 === 300){ %> selected
+                                    <% } %>
+                            >5m
+                            </option>
+                            <option value="330"
+                            <% if(appliance[0].time2 === 330){ %> selected
+                                    <% } %>
+                            >5m30s
+                            </option>
+                        </select>
+                    </label>
+                </div>
+                <div class="select-box option_item" id="channel">
+                    <p class="form-ttl">Channel</p>
+                    <label for="channel_l">
+                        <select name="channel" class="select_form" id="channel_1" disabled>
+                            <option value="1"
+                            <% if(appliance[0].channel === 1){ %> selected
+                                    <% } %>
+                            >1
+                            </option>
+                            <option value="2"
+                            <% if(appliance[0].channel === 2){ %> selected
+                                    <% } %>
+                            >2
+                            </option>
+                            <option value="3"
+                            <% if(appliance[0].channel === 3){ %> selected
+                                    <% } %>
+                            >3
+                            </option>
+                            <option value="4"
+                            <% if(appliance[0].channel === 4){ %> selected
+                                    <% } %>
+                            >4
+                            </option>
+                            <option value="5"
+                            <% if(appliance[0].channel === 5){ %> selected
+                                    <% } %>
+                            >5
+                            </option>
+                            <option value="6"
+                            <% if(appliance[0].channel === 6){ %> selected
+                                    <% } %>
+                            >6
+                            </option>
+                            <option value="7"
+                            <% if(appliance[0].channel === 7){ %> selected
+                                    <% } %>
+                            >7
+                            </option>
+                            <option value="8"
+                            <% if(appliance[0].channel === 8){ %> selected
+                                    <% } %>
+                            >8
+                            </option>
+                            <option value="9"
+                            <% if(appliance[0].channel === 9){ %> selected
+                                    <% } %>
+                            >9
+                            </option>
+                            <option value="10"
+                            <% if(appliance[0].channel === 10){ %> selected
+                                    <% } %>
+                            >10
+                            </option>
+                        </select>
+                    </label>
+                </div>
+                <div class="range-box option_item" id="volume">
+                    <p class="form-ttl">Volume</p>
+                    <label for="range">
+                        <input name="volume" type="range" min="0" max="10" step="1" id="range"
+                               value="<%= appliance[0].volume %>" disabled>
+                    </label>
+                </div>
+            </div>
+            <button class="submit-button" id="submit_button" type="submit" disabled>
+                Update
+            </button>
+        </form>
+        <a href="/device_list" class="back_btn"><span><i class="fa-solid fa-angle-left"></i></span>Back to Device List</a>
+    </section>
+</div>
+</body>
+</html>

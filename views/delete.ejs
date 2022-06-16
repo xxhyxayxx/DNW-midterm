@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./components/head'); %>
+    <link rel="stylesheet" href="/css/delete.css">
+</head>
+<body>
+<div class="wrapper">
+    <%- include('./components/global_nav'); %>
+    <section>
+        <h1 class="add_device_ttl">Delete Device</h1>
+        <form method="POST" action="/delete/<%= appliance[0].id %>" id="delete_device">
+                <p id="device" class="device"><%= appliance[0].device %></p>
+                <p class="device_name">Device Name : <span class="device_name_active"><%= appliance[0].name %></span></p>
+            <div class="buttons">
+                <a href="/edit/<%= appliance[0].id %>" class="cancel">Cancel</a>
+                <button class="submit-button" id="submit_button" type="submit">
+                    Delete
+                </button>
+            </div>
+        </form>
+    </section>
+</div>
+</body>
+</html>

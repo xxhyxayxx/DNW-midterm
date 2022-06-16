@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./components/head'); %>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/device_list.css">
+    <script src="js/device_list.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <%- include('./components/global_nav'); %>
+    <%
+    if(registerDevices === 0){ %>
+        <section>
+            <h1 class="list-ttl">Device List</h1>
+            <div class="main-img"><img src="images/device_list.svg" alt="Smart Home - Make Life Easier -"/></div>
+            <p class="device-list-text">There are no devices registered.</p>
+            <div class="add-device-button"><a href="/add_device">Add a device</a></div>
+        </section>
+    <% }else{ %>
+        <section>
+            <h1 class="list-ttl">Device List</h1>
+            <ul class="device-list">
+                <% registerDevices.forEach(function(item){ %>
+                    <li>
+                        <a href="/edit/<%= item.id %>" class="device-item">
+                            <p class="device-name"><%= item.name %></p>
+                            <i class="icon-<%= item.device.replace(/\s+/g, ""); %> device-icon"></i>
+                            <%
+                            if(item.isOn !== null){
+                            if(item.isOn === 0){
+                            %> <p class="device-state">OFF</p>
+                            <%
+                            }else{
+                            %> <p class="device-state">ON</p>
+                            <%
+                            }
+                            }
+
+                            if(item.isOpen !== null){
+                            if(item.isOpen === 0){
+                            %> <p class="device-state">CLOSE</p>
+                            <%
+                            }else{
+                            %> <p class="device-state">OPEN</p>
+                            <%
+                            }
+                            }
+
+                            if(item.isLock !== null){
+                            if(item.isLock === 0){
+                            %> <p class="device-state">UNLOCK</p>
+                            <%
+                            }else{
+                            %> <p class="device-state">LOCK</p>
+                            <%
+                            }
+                            } %>
+                        </a>
+                    </li>
+                <% }) %>
+            </ul>
+        </section>
+    <% }
+    %>
+</div>
+</body>
+</html>

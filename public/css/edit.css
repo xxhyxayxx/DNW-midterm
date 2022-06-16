@@ -2,7 +2,7 @@
 
 /*********************************************
 
-add_device.css
+edit.css
 
  *********************************************/
 
@@ -152,4 +152,58 @@ form{
     font-size: 1.1rem;
     letter-spacing: 0.02rem;
     font-family: 'Quicksand', sans-serif;
+}
+
+.delete_button a{
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+    text-align: center;
+    width: 70px;
+}
+
+.test{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px 20px 24px;
+}
+
+.test a {
+    display: block;
+    text-align: center;
+}
+
+.test a:hover{
+    color: #F47676;
+}
+
+.delete_icon{
+    font-size: 1.8rem;
+}
+
+.delete_text{
+    display: block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 2px 0 0 0;
+}
+
+.device_name{
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.back_btn{
+    display: inline-block;
+    padding: 16px 0 0 0;
+}
+
+.back_btn span{
+    padding: 0 8px 0 0;
+}
+
+.back_btn:hover{
+    color: #F47676;
 }

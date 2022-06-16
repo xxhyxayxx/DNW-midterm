@@ -2,22 +2,21 @@
 
 /*********************************************
 
-device_list.css
+completion.css
 
  *********************************************/
 
 .wrapper{
     display: flex;
+    align-items: center;
 }
 
 section{
-    max-width: 980px;
     margin: 0 auto;
-    padding: 40px 0;
     text-align: center;
 }
 
-.list-ttl{
+.comp_ttl{
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
     font-size: 3.8rem;
@@ -25,11 +24,10 @@ section{
     padding: 0 0 28px 0;
 }
 
-.device-list-text{
+.comp_text{
     padding: 24px 0 0;
     font-size: 1rem;
     letter-spacing: 0.02rem;
-
 }
 
 .add-device-button a{
@@ -51,47 +49,5 @@ section{
 .main-img img{
     width: 400px;
     height: auto;
-}
-
-.device-list{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.device-list li{
-    margin:0 20px 20px 0;
-}
-
-.device-list li:nth-child(5n){
-    margin:0 0 20px 0;
-}
-
-.device-item{
-    width: 180px;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: #DFDFDF;
-    border-radius: 20px;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-}
-
-.device-item:last-child{
-    margin: 0;
-}
-
-.device-icon{
-    font-size: 3.4rem;
-}
-
-.device-name{
-    padding: 0 0 16px 0;
-}
-
-.device-state{
-    padding: 12px 0 0 0;
-    font-size: 1.4rem;
 }
 

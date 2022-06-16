@@ -1,31 +1,72 @@
 // The main.js file of your application
 module.exports = function (app) {
     app.get("/", function (req, res) {
-        res.render("index.html");
+        res.render("index.ejs", {page_name: 'home'});
     });
 
     app.get("/about", function (req, res) {
-        res.render("about.html");
+        res.render("about.ejs", {page_name: 'about'});
     });
+
+    app.get("/completion", function (req, res) {
+        res.render("completion.ejs", {page_name: 'add_device'});
+    });
+
+    app.get("/edit/:id", function (req, res) {
+        const sql = "SELECT * FROM appliances WHERE id = ?";
+        db.query(sql,[req.params.id],function (err, result) {
+            if (err) throw err;
+            res.render('edit.ejs', {appliance : result, page_name: "device_list"});
+        });
+    });
+
+    app.post('/edit/:id',(req,res)=>{
+        const sql = "UPDATE appliances SET ? WHERE id = " + req.params.id;
+        db.query(sql,req.body,function (err, result) {
+            if (err) throw err;
+            res.redirect('/device_list');
+        });
+    });
+
+    app.get("/delete/:id", function (req, res) {
+        const sql = "SELECT * FROM appliances WHERE id = ?";
+        db.query(sql,[req.params.id],function (err, result) {
+            if (err) throw err;
+            res.render('delete.ejs', {appliance : result, page_name : "device_list"});
+        });
+    });
+
+    app.post('/delete/:id',(req,res)=>{
+        const sql = "DELETE FROM appliances WHERE id = ?";
+        db.query(sql,[req.params.id],function(err,result,fields){
+            if (err) throw err;
+            res.redirect('/device_list');
+        })
+    });
+
     app.get("/add_device", function (req, res) {
-        res.render("add_device.html");
+        res.render("add_device.ejs", {page_name : "add_device"});
     });
+
+    app.post("/add_device", function (req, res){
+        let sqlquery = "INSERT INTO appliances (device, name, isOn, isOpen, isLock, temp, temp2, temp3, time, time2, channel, volume) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+        let newrecord = [req.body.device, req.body.deviceName, req.body.toggle_power, req.body.toggle_closeopen, req.body.toggle_lockunlock, req.body.toggle_temperature, req.body.temperature2, req.body.temperature3, req.body.time_1, req.body.time_2,   req.body.channel_1, req.body.range];
+        db.query(sqlquery, newrecord, (err) => {
+            if (err) {
+                return console.error(err.message);
+            } else {
+                res.redirect("/completion");
+            }
+        });
+    });
+
     app.get("/device_list", function (req, res) {
-        res.render("device_list.html");
-    });
-    app.post("/registered", function (req, res) {
-        // saving data in database
-        res.send("Hello " + req.body.first + " " + req.body.last + ", you are now registered!");
-    });
-    app.get("/list", function (req, res) {
-        //query database to get all the books
-        let sqlquery = "SELECT * FROM books";
-        //execute sql query
+        let sqlquery = "SELECT * FROM appliances";
         db.query(sqlquery, (err, result) => {
             if (err) {
                 res.redirect("/");
             }
-            res.send(result)
+            res.render("device_list.ejs", { registerDevices : result, page_name : 'device_list' });
         });
     });
 }
