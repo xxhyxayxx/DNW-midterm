@@ -142,8 +142,8 @@ form{
 
 .submit-button{
     margin: 24px 0 0;
-    background: #7c7c7c;
-    color: #fff;
+    border: 2px solid #F47676;
+    color: #F47676;
     padding: 12px 0;
     width: 140px;
     text-align: center;
@@ -156,6 +156,7 @@ form{
 
 .submit-button:hover{
     background: #F47676;
+    color: #fff;
 }
 
 .delete_button a{

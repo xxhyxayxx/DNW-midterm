@@ -1,28 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Smart Home - About -</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/reset.css">
+    <%- include('./components/head'); %>
     <link rel="stylesheet" href="css/add_device.css">
     <script src="js/add_device.js"></script>
 </head>
 <body>
 <div class="wrapper">
-    <header class="header">
-        <nav>
-            <ul class="menu">
-                <li><a href="/"><span><i class="fa-solid fa-house-chimney"></i></span>Home</a></li>
-                <li><a href="/about"><span><i class="fa-solid fa-circle-user"></i></span>About</a></li>
-                <li><a href="/add_device" class="active"><span><i class="fa-solid fa-house-laptop"></i></span>Add New
-                        Device</a></li>
-                <li><a href="/device_list"><span><i class="fa-solid fa-clipboard-list"></i></span>Device List</a></li>
-            </ul>
-        </nav>
-    </header>
+    <%- include('./components/global_nav'); %>
     <section>
         <h1 class="add_device_ttl">Add New Device</h1>
         <form method="POST" action="/add_device" id="add_device">

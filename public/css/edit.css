@@ -194,3 +194,16 @@ form{
     text-align: center;
     font-size: 1.4rem;
 }
+
+.back_btn{
+    display: inline-block;
+    padding: 16px 0 0 0;
+}
+
+.back_btn span{
+    padding: 0 8px 0 0;
+}
+
+.back_btn:hover{
+    color: #F47676;
+}

@@ -1,22 +1,22 @@
 // The main.js file of your application
 module.exports = function (app) {
     app.get("/", function (req, res) {
-        res.render("index.ejs");
+        res.render("index.ejs", {page_name: 'home'});
     });
 
     app.get("/about", function (req, res) {
-        res.render("about.ejs");
+        res.render("about.ejs", {page_name: 'about'});
     });
 
     app.get("/completion", function (req, res) {
-        res.render("completion.ejs");
+        res.render("completion.ejs", {page_name: 'add_device'});
     });
 
     app.get("/edit/:id", function (req, res) {
         const sql = "SELECT * FROM appliances WHERE id = ?";
         db.query(sql,[req.params.id],function (err, result) {
             if (err) throw err;
-            res.render('edit.ejs', {appliance : result});
+            res.render('edit.ejs', {appliance : result, page_name: "device_list"});
         });
     });
 
@@ -32,7 +32,7 @@ module.exports = function (app) {
         const sql = "SELECT * FROM appliances WHERE id = ?";
         db.query(sql,[req.params.id],function (err, result) {
             if (err) throw err;
-            res.render('delete.ejs', {appliance : result});
+            res.render('delete.ejs', {appliance : result, page_name : "device_list"});
         });
     });
 
@@ -45,7 +45,7 @@ module.exports = function (app) {
     });
 
     app.get("/add_device", function (req, res) {
-        res.render("add_device.ejs");
+        res.render("add_device.ejs", {page_name : "add_device"});
     });
 
     app.post("/add_device", function (req, res){
@@ -66,7 +66,7 @@ module.exports = function (app) {
             if (err) {
                 res.redirect("/");
             }
-            res.render("device_list.ejs", { registerDevices : result });
+            res.render("device_list.ejs", { registerDevices : result, page_name : 'device_list' });
         });
     });
 }
