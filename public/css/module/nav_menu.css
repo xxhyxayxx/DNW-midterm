@@ -25,12 +25,13 @@ nav{
     padding: 1.5rem 1rem;
 }
 
-.menu li a {
+.menu_ttl {
+    display: block;
     font-size: 1rem;
     font-family: 'Quicksand', sans-serif;
 }
 
-.menu li a span{
+.menu_icon{
     display: block;
     padding: 0 0 0.5rem 0;
     font-size: 2.8rem;
@@ -39,4 +40,51 @@ nav{
 .active, .menu li a:hover{
     color: #FA7F7F;
     font-weight: bold;
+}
+
+@media only screen and (max-width: 980px) {
+    nav {
+        height: auto;
+        width: calc(100% - 64px);
+        margin: 32px;
+        display: block;
+        padding: 0 32px;
+        /* position: sticky; */
+        /* top: 32px; */
+    }
+
+    .menu{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .menu li {
+        padding: 1.5rem 1rem;
+    }
+
+    .menu_icon {
+        font-size: 2.4rem;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    nav {
+        width: calc(100% - 32px);
+        border-radius: 20px;
+        margin: 16px;
+        padding: 0 16px;
+    }
+
+    .menu li {
+        padding: 1rem 0;
+        width: 55px;
+    }
+
+    .menu_icon {
+        font-size: 1.4rem;
+    }
+
+    .menu_ttl{
+        display: none;
+    }
 }

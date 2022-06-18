@@ -48,3 +48,58 @@ section{
     height: auto;
 }
 
+@media only screen and (max-width: 1180px) {
+    section{
+        flex-flow: column;
+    }
+
+    .ttl{
+        order: 1;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    .wrapper {
+        flex-flow: column;
+        min-height: 100vh;
+    }
+
+    header{
+        width: 100%;
+        order: 1;
+    }
+
+    section{
+        flex-flow: column;
+        flex: 1;
+    }
+
+    .ttl{
+        order: 1;
+    }
+
+    .main-img{
+        order: 0;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .main-img img {
+        width: 320px;
+    }
+
+    .home-ttl {
+        font-size: 2.8rem;
+    }
+
+    .home-sub-ttl {
+        font-size: 1rem;
+        padding: 4px 0 0;
+    }
+
+    .add-device-button a {
+        width: 140px;
+        font-size: 1rem;
+    }
+}
+
