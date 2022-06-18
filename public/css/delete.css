@@ -233,3 +233,31 @@ form{
     background: #7c7c7c;
     color: #fff;
 }
+
+@media only screen and (max-width: 980px) {
+    .wrapper {
+        min-height: 100vh;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+
+    section{
+        width: 100%;
+    }
+
+    .add_device_ttl {
+        font-size: 2.4rem;
+    }
+
+    form{
+        margin: 0 auto;
+        width: calc(100% - 32px);
+        padding: 16px;
+    }
+
+    .form-ttl {
+        font-size: 1rem;
+        padding: 0 16px 0 0;
+    }
+}

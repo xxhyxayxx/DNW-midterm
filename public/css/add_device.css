@@ -51,7 +51,7 @@ form{
     appearance: none;
     font-family: 'Quicksand', sans-serif;
     background: #fff;
-    padding: 12px 32px 12px 12px;
+    padding: 12px;
     border-radius: 8px;
     color: #858282;
     font-size: 1.2rem;
@@ -153,3 +153,33 @@ form{
     letter-spacing: 0.02rem;
     font-family: 'Quicksand', sans-serif;
 }
+
+@media only screen and (max-width: 980px) {
+    .wrapper {
+        min-height: 100vh;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+
+    section{
+        width: 100%;
+    }
+
+    .add_device_ttl {
+        font-size: 2.4rem;
+    }
+
+    form{
+        margin: 0 auto;
+        width: calc(100% - 32px);
+        padding: 16px;
+    }
+
+    .form-ttl {
+        font-size: 1rem;
+        padding: 0 16px 0 0;
+    }
+}
+
+

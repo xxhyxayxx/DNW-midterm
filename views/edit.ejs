@@ -1,33 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Smart Home - About -</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/reset.css">
+    <%- include('./components/head'); %>
     <link rel="stylesheet" href="/css/edit.css">
     <script src="/js/edit.js"></script>
 </head>
 <body>
 <div class="wrapper">
-    <header>
-        <nav>
-            <ul class="menu">
-                <li><a href="/"><span><i class="fa-solid fa-house-chimney"></i></span>Home</a></li>
-                <li><a href="/about"><span><i class="fa-solid fa-circle-user"></i></span>About</a></li>
-                <li><a href="/add_device"><span><i class="fa-solid fa-house-laptop"></i></span>Add New Device</a></li>
-                <li><a href="/device_list" class="active"><span><i class="fa-solid fa-clipboard-list"></i></span>Device
-                        List</a></li>
-            </ul>
-        </nav>
-    </header>
+    <%- include('./components/global_nav'); %>
     <section>
         <h1 class="add_device_ttl">Edit Device</h1>
         <form method="POST" action="/edit/<%= appliance[0].id %>" id="update_device">
             <div id="option">
-                <div class="test">
+                <div class="device-name">
                     <p id="device" class="device_name"><%= appliance[0].device %></p>
                     <a href="/delete/<%= appliance[0].id %>"><span><i class="fa-solid fa-xmark delete_icon"></i></span><span class="delete_text">Delete</span></a>
                 </div>

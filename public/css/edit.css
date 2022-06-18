@@ -162,19 +162,19 @@ form{
     width: 70px;
 }
 
-.test{
+.device-name{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 24px 20px 24px;
 }
 
-.test a {
+.device-name a {
     display: block;
     text-align: center;
 }
 
-.test a:hover{
+.device-name a:hover{
     color: #F47676;
 }
 
@@ -206,4 +206,47 @@ form{
 
 .back_btn:hover{
     color: #F47676;
+}
+
+@media only screen and (max-width: 980px) {
+    .wrapper {
+        min-height: 100vh;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+
+    section{
+        width: 100%;
+    }
+
+    .add_device_ttl {
+        font-size: 2.4rem;
+    }
+
+    form{
+        margin: 0 auto;
+        width: calc(100% - 32px);
+        padding: 16px;
+    }
+
+    .form-ttl {
+        font-size: 1rem;
+        padding: 0 16px 0 0;
+    }
+
+    .back_btn {
+        margin: 0 0 0 20px;
+    }
+
+    .device-name{
+        padding: 0;
+    }
+
+    .toggle-box{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 24px 0 0;
+    }
 }
