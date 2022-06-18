@@ -49,8 +49,10 @@ nav{
         margin: 32px;
         display: block;
         padding: 0 32px;
-        /* position: sticky; */
-        /* top: 32px; */
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        top: auto;
     }
 
     .menu{
@@ -81,6 +83,7 @@ nav{
     }
 
     .menu_icon {
+        padding: 0;
         font-size: 1.4rem;
     }
 
