@@ -1,10 +1,30 @@
 <header>
     <nav>
         <ul class="menu">
-            <li><a href="/" <% if (page_name === 'home') { %>class="active" <% } %>><span><i class="fa-solid fa-house-chimney"></i></span>Home</a></li>
-            <li><a href="/about" <% if (page_name === 'about') { %>class="active" <% } %>><span><i class="fa-solid fa-circle-user"></i></span>About</a></li>
-            <li><a href="/add_device" <% if (page_name === 'add_device') { %>class="active" <% } %>><span><i class="fa-solid fa-house-laptop"></i></span>Add New Device</a></li>
-            <li><a href="/device_list" <% if (page_name === 'device_list') { %>class="active" <% } %>><span><i class="fa-solid fa-clipboard-list"></i></span>Device List</a></li>
+            <li>
+                <a href="/" <% if (page_name === 'home') { %>class="active" <% } %>>
+                    <span class="menu_icon"><i class="fa-solid fa-house-chimney"></i></span>
+                    <span class="menu_ttl">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about" <% if (page_name === 'about') { %>class="active" <% } %>>
+                    <span class="menu_icon"><i class="fa-solid fa-circle-user"></i></span>
+                    <span class="menu_ttl">About</span>
+                </a>
+            </li>
+            <li>
+                <a href="/add_device" <% if (page_name === 'add_device') { %>class="active" <% } %>>
+                    <span class="menu_icon"><i class="fa-solid fa-house-laptop"></i></span>
+                    <span class="menu_ttl">Add New Device</span>
+                </a>
+            </li>
+            <li>
+                <a href="/device_list" <% if (page_name === 'device_list') { %>class="active" <% } %>>
+                    <span class="menu_icon"><i class="fa-solid fa-clipboard-list"></i></span>
+                    <span class="menu_ttl">Device List</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
