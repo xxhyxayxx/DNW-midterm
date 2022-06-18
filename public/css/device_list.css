@@ -29,28 +29,6 @@ section{
     padding: 24px 0 0;
     font-size: 1rem;
     letter-spacing: 0.02rem;
-
-}
-
-.add-device-button a{
-    font-family: 'Quicksand', sans-serif;
-    display: block;
-    width: 200px;
-    margin: 24px auto 0;
-    background: #F47676;
-    color: #fff;
-    font-size: 1.3rem;
-    padding: 12px 20px;
-    border-radius: 25px;
-}
-
-.main-img{
-    padding: 0 20px 0 0;
-}
-
-.main-img img{
-    width: 400px;
-    height: auto;
 }
 
 .device-list{
@@ -88,6 +66,7 @@ section{
 
 .device-name{
     padding: 0 0 16px 0;
+    overflow-wrap: break-word;
 }
 
 .device-state{
@@ -95,3 +74,36 @@ section{
     font-size: 1.4rem;
 }
 
+@media only screen and (max-width: 1180px) {
+    .device-list{
+        justify-content: center;
+    }
+
+    .device-list li:nth-child(5n){
+        margin:0 20px 20px 0;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    body{
+        padding: 0 0 200px 0;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    body{
+        padding: 0 0 100px 0;
+    }
+
+    .list-ttl {
+        font-size: 3rem;
+    }
+
+    .device-item{
+        width: 160px;
+    }
+
+    .device-list li:nth-child(even){
+        margin:0 0 20px 0;
+    }
+}
