@@ -14,22 +14,28 @@
             <div id="option">
                 <div class="device-name">
                     <p id="device" class="device_name"><%= appliance[0].device %></p>
-                    <a href="/delete/<%= appliance[0].id %>"><span><i class="fa-solid fa-xmark delete_icon"></i></span><span class="delete_text">Delete</span></a>
+                    <a href="/delete/<%= appliance[0].id %>"><span><i
+                                    class="fa-solid fa-xmark delete_icon"></i></span><span
+                                class="delete_text">Delete</span></a>
                 </div>
                 <div class="toggle-box option_item" id="deviceName">
                     <p class="form-ttl">Device Name</p>
                     <label for="name">
                         <input type="text" name="name" maxlength="20" placeholder="Device Name" id="name"
-                               value="<%= appliance[0].name %>" disabled
-                               class="text_form"/>
+                               value="<%= appliance[0].name %>"
+                               class="text_form device_text"/>
                     </label>
                 </div>
                 <div class="toggle-box option_item" id="is_on">
                     <p class="form-ttl">Power OFF/ON</p>
                     <div class="toggle_button">
-                        <input id="toggle_power" name="isOn" class="toggle_input toggle_power_hidden" type='hidden'
-                               disabled value="0"/>
-                        <input id="toggle_power" name="isOn" class="toggle_input" type='checkbox' disabled value="1"
+                        <input id="toggle_power" name="isOn" class="toggle_input" type='hidden'
+                        <% if(appliance[0].isOn === 1 || appliance[0].isOn === null){ %> disabled
+                                <% } %>
+                               value="0"/>
+                        <input id="toggle_power" name="isOn" class="toggle_input" type='checkbox' value="1"
+                        <% if (appliance[0].isOn === null){ %> disabled
+                                <% } %>
                         <% if(appliance[0].isOn === 1){ %> checked
                                 <% } %>
                         />
@@ -39,11 +45,15 @@
                 <div class="toggle-box option_item" id="is_open">
                     <p class="form-ttl">CLOSE/OPEN</p>
                     <div class="toggle_button">
-                        <input id="toggle_closeopen" name="isOpen" class="toggle_input" type="hidden" disabled
+                        <input id="toggle_closeopen" name="isOpen" class="toggle_input" type="hidden"
+                        <% if(appliance[0].isOpen === 1 || appliance[0].isOpen === null){ %> disabled
+                                <% } %>
                                value="0"/>
-                        <input id="toggle_closeopen" name="isOpen" class="toggle_input" type="checkbox" disabled
+                        <input id="toggle_closeopen" name="isOpen" class="toggle_input" type="checkbox"
                                value="1"
-                        <% if(appliance[0].isOn === 1){ %> checked
+                        <% if (appliance[0].isOpen === null){ %> disabled
+                                <% } %>
+                        <% if(appliance[0].isOpen === 1){ %> checked
                                 <% } %>
                         />
                         <label for="toggle_closeopen" class="toggle_label"></label>
@@ -52,12 +62,16 @@
                 <div class="toggle-box option_item" id="is_lock">
                     <p class="form-ttl">UNLOCK/LOCK</p>
                     <div class="toggle_button">
-                        <input id="toggle_lockunlock" name="isLock" class="toggle_input" type="hidden" disabled
+                        <input id="toggle_lockunlock" name="isLock" class="toggle_input" type="hidden"
+                        <% if(appliance[0].isLock === 1 || appliance[0].isLock === null){ %> disabled
+                                <% } %>
                                value="0"/>
                         <input id="toggle_lockunlock" name="isLock" class="toggle_input" type='checkbox' value="1"
-                        <% if(appliance[0].isOn === 1){ %> checked
+                        <% if (appliance[0].isLock === null){ %> disabled
                                 <% } %>
-                               disabled/>
+                        <% if(appliance[0].isLock === 1){ %> checked
+                                <% } %>
+                        />
                         <label for="toggle_lockunlock" class="toggle_label"></label>
                     </div>
                 </div>
@@ -177,7 +191,7 @@
                 </div>
                 <div class="select-box option_item" id="time">
                     <p class="form-ttl">Time</p>
-                    <label for="time_1">
+                    <label for="time1">
                         <select name="time" class="select_form" id="time_1" disabled>
                             <option value="10"
                             <% if(appliance[0].time === 10){ %> selected
@@ -214,8 +228,8 @@
                 </div>
                 <div class="select-box option_item" id="time2">
                     <p class="form-ttl">Time</p>
-                    <label for="time_2">
-                        <select name="time_2" class="select_form" id="time_2" disabled>
+                    <label for="time2">
+                        <select name="time2" class="select_form" id="time_2" disabled>
                             <option value="30"
                             <% if(appliance[0].time2 === 30){ %> selected
                                     <% } %>
@@ -343,7 +357,8 @@
                 Update
             </button>
         </form>
-        <a href="/device_list" class="back_btn"><span><i class="fa-solid fa-angle-left"></i></span>Back to Device List</a>
+        <a href="/device_list" class="back_btn"><span><i class="fa-solid fa-angle-left"></i></span>Back to Device
+            List</a>
     </section>
 </div>
 </body>

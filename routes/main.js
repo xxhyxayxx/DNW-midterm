@@ -12,6 +12,14 @@ module.exports = function (app) {
         res.render("completion.ejs", {page_name: 'add_device'});
     });
 
+    app.get("/comp_delete", function (req, res) {
+        res.render("comp_delete.ejs", {page_name: 'device_list'});
+    });
+
+    app.get("/comp_edit", function (req, res) {
+        res.render("comp_edit.ejs", {page_name: 'device_list'});
+    });
+
     app.get("/edit/:id", function (req, res) {
         const sql = "SELECT * FROM appliances WHERE id = ?";
         db.query(sql,[req.params.id],function (err, result) {
@@ -24,7 +32,7 @@ module.exports = function (app) {
         const sql = "UPDATE appliances SET ? WHERE id = " + req.params.id;
         db.query(sql,req.body,function (err, result) {
             if (err) throw err;
-            res.redirect('/device_list');
+            res.redirect("/comp_edit");
         });
     });
 
@@ -40,7 +48,7 @@ module.exports = function (app) {
         const sql = "DELETE FROM appliances WHERE id = ?";
         db.query(sql,[req.params.id],function(err,result,fields){
             if (err) throw err;
-            res.redirect('/device_list');
+            res.redirect("/comp_delete");
         })
     });
 

@@ -48,12 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('option').style.display = "block";
                 const tag = document.getElementById(element);
                 tag.style.display = "flex";
-                if (tag.getElementsByTagName("input")) {
-                    const input = tag.getElementsByTagName("input");
-                    for (let i = 0; i < input.length; i++) {
-                        input[i].disabled = false;
-                    }
-                }
+                // if (tag.getElementsByClassName("input")) {
+                //     const input = tag.getElementsByTagName("input");
+                //     for (let i = 0; i < input.length; i++) {
+                //         input[i].disabled = false;
+                //     }
+                // }
                 if (tag.getElementsByTagName("select")) {
                     const select = tag.getElementsByTagName("select");
                     for (let i = 0; i < select.length; i++) {
