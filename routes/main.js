@@ -1,5 +1,8 @@
 // The main.js file of your application
+const expressSanitizer = require("express-sanitizer");
 module.exports = function (app) {
+    app.use(expressSanitizer());
+
     app.get("/", function (req, res) {
         res.render("index.ejs", {page_name: 'home'});
     });
@@ -30,6 +33,7 @@ module.exports = function (app) {
 
     app.post('/edit/:id',(req,res)=>{
         const sql = "UPDATE appliances SET ? WHERE id = " + req.params.id;
+        req.body.name = req.sanitize(req.body.name);
         db.query(sql,req.body,function (err, result) {
             if (err) throw err;
             res.redirect("/comp_edit");
@@ -58,7 +62,11 @@ module.exports = function (app) {
 
     app.post("/add_device", function (req, res){
         let sqlquery = "INSERT INTO appliances (device, name, isOn, isOpen, isLock, temp, temp2, temp3, time, time2, channel, volume) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
-        let newrecord = [req.body.device, req.body.deviceName, req.body.toggle_power, req.body.toggle_closeopen, req.body.toggle_lockunlock, req.body.toggle_temperature, req.body.temperature2, req.body.temperature3, req.body.time_1, req.body.time_2,   req.body.channel_1, req.body.range];
+
+        const sanitizedString = req.sanitize(req.body.deviceName);
+
+        let newrecord = [req.body.device, sanitizedString, req.body.toggle_power, req.body.toggle_closeopen, req.body.toggle_lockunlock, req.body.toggle_temperature, req.body.temperature2, req.body.temperature3, req.body.time_1, req.body.time_2,   req.body.channel_1, req.body.range];
+
         db.query(sqlquery, newrecord, (err) => {
             if (err) {
                 return console.error(err.message);
