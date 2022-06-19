@@ -8,6 +8,7 @@ device_list.css
 
 .wrapper{
     display: flex;
+    align-items: center;
 }
 
 section{
@@ -72,6 +73,17 @@ section{
 .device-state{
     padding: 12px 0 0 0;
     font-size: 1.4rem;
+}
+
+.add-device-button a{
+    display: block;
+    width: 200px;
+    margin: 24px auto 0;
+    background: #F47676;
+    color: #fff;
+    font-size: 1.3rem;
+    padding: 12px 20px;
+    border-radius: 25px;
 }
 
 @media only screen and (max-width: 1180px) {
