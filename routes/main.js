@@ -65,7 +65,7 @@ module.exports = function (app) {
 
         const sanitizedString = req.sanitize(req.body.deviceName);
 
-        let newrecord = [req.body.device, sanitizedString, req.body.toggle_power, req.body.toggle_closeopen, req.body.toggle_lockunlock, req.body.toggle_temperature, req.body.temperature2, req.body.temperature3, req.body.time_1, req.body.time_2,   req.body.channel_1, req.body.range];
+        let newrecord = [req.body.device, sanitizedString, req.body.toggle_power, req.body.toggle_closeopen, req.body.toggle_lockunlock, req.body.temperature, req.body.temperature2, req.body.temperature3, req.body.time_1, req.body.time_2,   req.body.channel_1, req.body.range];
 
         db.query(sqlquery, newrecord, (err) => {
             if (err) {
